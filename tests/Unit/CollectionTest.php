@@ -6,6 +6,7 @@ namespace Tests\Unit;
 
 use Tests\SimpleTestCase;
 use PublishingKit\Collection\Collection;
+use Mockery as m;
 
 final class CollectionTest extends SimpleTestCase
 {
@@ -213,5 +214,119 @@ final class CollectionTest extends SimpleTestCase
         $items = [16, 25];
         Collection::macro('foo', $callable);
         $this->assertEquals('Foo', Collection::foo());
+    }
+
+    public function testImplementsMap()
+    {
+        $items = [
+            1,
+            2,
+            3
+        ];
+        $this->collection = new Collection($items);
+        $this->assertSame([1,8,27], $this->collection->map(function ($item) {
+            return ($item * $item * $item);
+        })->toArray());
+    }
+
+    public function testImplementsFilter()
+    {
+        $items = [
+            'foo' => 1,
+            'bar' => 2,
+            'baz' => 3
+        ];
+        $this->collection = new Collection($items);
+        $this->assertSame([
+            'bar' => 2,
+            'baz' => 3
+        ], $this->collection->filter(function ($v) {
+            return $v > 1;
+        })->toArray());
+    }
+
+    public function testImplementsReject()
+    {
+        $items = [
+            'foo' => 1,
+            'bar' => 2,
+            'baz' => 3
+        ];
+        $this->collection = new Collection($items);
+        $this->assertSame([
+            'bar' => 2,
+            'baz' => 3
+        ], $this->collection->reject(function ($v) {
+            return $v <= 1;
+        })->toArray());
+    }
+
+    public function testImplementsReduce()
+    {
+        $items = [1, 2, 3];
+        $this->collection = new Collection($items);
+        $this->assertSame(6, $this->collection->reduce(function ($total, $item) {
+            return $total += $item;
+        }));
+    }
+
+    public function testImplementsPluck()
+    {
+        $items = [[
+            'foo' => 1,
+            'bar' => 2
+        ], [
+            'foo' => 3,
+            'bar' => 4
+        ], [
+            'foo' => 5,
+            'bar' => 6
+        ]];
+        $this->collection = new Collection($items);
+        $this->assertSame([1, 3, 5], $this->collection->pluck('foo')->toArray());
+    }
+
+    public function testImplementsEach()
+    {
+        /** @var DateTime|\PHPUnit\Framework\MockObject\MockObject $date */
+        $date = m::mock('DateTime');
+        $date->shouldReceive('setTimezone')
+            ->with('Europe/London')
+            ->once()
+            ->andReturn(null);
+        $this->collection = new Collection([$date]);
+        $this->collection->each(function ($item) {
+            $item->setTimezone('Europe/London');
+        });
+    }
+
+    public function testImplementsPush()
+    {
+        $items = [1, 2, 3];
+        $this->collection = new Collection($items);
+        $this->assertSame([1, 2, 3, 4], $this->collection->push(4)->toArray());
+    }
+
+    public function testImplementsPop()
+    {
+        $items = [1, 2, 3];
+        $this->collection = new Collection($items);
+        $this->assertSame(3, $this->collection->pop());
+        $this->assertSame([1, 2], $this->collection->toArray());
+    }
+
+    public function testImplementsUnshift()
+    {
+        $items = [1, 2, 3];
+        $this->collection = new Collection($items);
+        $this->assertSame([4, 1, 2, 3], $this->collection->unshift(4)->toArray());
+    }
+
+    public function testImplementsShift()
+    {
+        $items = [1, 2, 3];
+        $this->collection = new Collection($items);
+        $this->assertSame(1, $this->collection->shift());
+        $this->assertSame([2, 3], $this->collection->toArray());
     }
 }
