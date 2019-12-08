@@ -8,9 +8,12 @@ use ArrayAccess;
 use Countable;
 use IteratorAggregate;
 use ArrayIterator;
+use PublishingKit\Collection\Traits\Macroable;
 
 class Collection implements ArrayAccess, Countable, IteratorAggregate
 {
+    use Macroable;
+
     /**
      * @var array
      */

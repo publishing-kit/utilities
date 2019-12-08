@@ -115,4 +115,103 @@ final class CollectionTest extends SimpleTestCase
     {
         $this->assertInstanceOf('IteratorAggregate', $this->collection);
     }
+
+    public function testSupportsMacros()
+    {
+        $items = [16, 25];
+        $collection = new Collection($items);
+        $collection->macro('squareRoot', function () use ($collection) {
+            return $collection->map(function ($number) {
+                return (int)sqrt($number);
+            });
+        });
+        $this->assertSame([4, 5], $collection->squareRoot()->toArray());
+    }
+
+    public function testSupportsStaticMacros()
+    {
+        $items = [16, 25];
+        $collection = new Collection($items);
+        Collection::macro('squareRoot', function () use ($collection) {
+            return $collection->map(function ($number) {
+                return (int)sqrt($number);
+            });
+        });
+        $this->assertSame([4, 5], $collection->squareRoot()->toArray());
+    }
+
+    public function testSupportsCallingMacrosStatically()
+    {
+        Collection::macro('bananas', function () {
+            return 'bananas';
+        });
+        $this->assertSame('bananas', Collection::bananas());
+    }
+
+    public function testAbsentMacroMethod()
+    {
+        $this->expectException('BadMethodCallException');
+        $items = [16, 25];
+        $collection = new Collection($items);
+        $collection->foo();
+    }
+
+    public function testAbsentMacroMethodStatic()
+    {
+        $this->expectException('BadMethodCallException');
+        Collection::foo();
+    }
+
+    public function testMixinFromClass()
+    {
+        Collection::mixin(new class {
+            public function foo()
+            {
+                return 'Foo';
+            }
+        });
+        $items = [16, 25];
+        $collection = new Collection($items);
+        $this->assertEquals('Foo', $collection->foo());
+    }
+
+    public function testCallMacroStatically()
+    {
+        Collection::mixin(new class {
+            public function foo()
+            {
+                return 'Foo';
+            }
+        });
+        $items = [16, 25];
+        $collection = new Collection($items);
+        $this->assertEquals('Foo', Collection::foo());
+    }
+
+    public function testCallCallableMacro()
+    {
+        $callable = new class {
+            public function __invoke()
+            {
+                return 'Foo';
+            }
+        };
+        $items = [16, 25];
+        Collection::macro('foo', $callable);
+        $collection = new Collection($items);
+        $this->assertEquals('Foo', $collection->foo());
+    }
+
+    public function testCallCallableMacroStatically()
+    {
+        $callable = new class {
+            public function __invoke()
+            {
+                return 'Foo';
+            }
+        };
+        $items = [16, 25];
+        Collection::macro('foo', $callable);
+        $this->assertEquals('Foo', Collection::foo());
+    }
 }
