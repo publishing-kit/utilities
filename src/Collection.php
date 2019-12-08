@@ -21,6 +21,11 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate
         $this->items = $items;
     }
 
+    public static function make(array $items)
+    {
+        return new static($items);
+    }
+
     public function offsetExists($offset)
     {
         return array_key_exists($offset, $this->items);

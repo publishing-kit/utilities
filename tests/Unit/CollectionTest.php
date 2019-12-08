@@ -25,6 +25,15 @@ final class CollectionTest extends SimpleTestCase
         $this->collection = null;
     }
 
+    public function testCanBeCalledStatically()
+    {
+        $items = [
+            'foo' => 'bar'
+        ];
+        $this->collection = Collection::make($items);
+        $this->assertSame(1, $this->collection->count());
+    }
+
     public function testImplementsCountable()
     {
         $this->assertInstanceOf('Countable', $this->collection);
