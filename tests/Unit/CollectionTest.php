@@ -117,6 +117,11 @@ final class CollectionTest extends SimpleTestCase
         $this->assertInstanceOf('IteratorAggregate', $this->collection);
     }
 
+    public function testGetIterator()
+    {
+        $this->assertInstanceOf('ArrayIterator', $this->collection->getIterator());
+    }
+
     public function testSupportsMacros()
     {
         $items = [16, 25];
