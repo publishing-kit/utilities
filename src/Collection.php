@@ -54,4 +54,9 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate
     {
         return new ArrayIterator($this->items);
     }
+
+    public function toArray()
+    {
+        return $this->items;
+    }
 }
