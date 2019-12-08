@@ -55,16 +55,16 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate
         return new ArrayIterator($this->items);
     }
 
-    public function toArray()
+    public function toArray(): array
     {
         return $this->items;
     }
 
-    public function map(callable $callback)
+    public function map(callable $callback): Collection
     {
         return new static(array_map($callback, $this->items));
     }
-    public function filter(callable $callback)
+    public function filter(callable $callback): Collection
     {
         return new static(array_filter($this->items, $callback));
     }
