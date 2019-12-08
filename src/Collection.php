@@ -21,7 +21,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate
         $this->items = $items;
     }
 
-    public static function make(array $items)
+    public static function make(array $items): Collection
     {
         return new static($items);
     }
