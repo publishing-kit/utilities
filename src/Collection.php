@@ -110,10 +110,10 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate
     /**
      * Pluck a single field
      *
-     * @param mixed $name Name of field to pluck.
+     * @param string $name Name of field to pluck.
      * @return mixed
      */
-    public function pluck($name)
+    public function pluck(string $name)
     {
         return $this->map(function (array $item) use ($name) {
             return $item[$name];
