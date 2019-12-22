@@ -1,12 +1,14 @@
 {
-    "name": "publishing-kit/collection",
+    "name": "publishing-kit/core",
     "type": "library",
-    "description": "PHP collection class",
+    "description": "PHP utility classes",
     "keywords": [
         "publishing-kit",
-        "collection"
+        "collection",
+        "string",
+        "utility"
     ],
-    "homepage": "https://github.com/publishing-kit/collection",
+    "homepage": "https://github.com/publishing-kit/core",
     "license": "MIT",
     "authors": [
         {
@@ -28,7 +30,7 @@
     },
     "autoload": {
         "psr-4": {
-            "PublishingKit\\Collection\\": "src"
+            "PublishingKit\\Core\\": "src"
         }
     },
     "autoload-dev": {

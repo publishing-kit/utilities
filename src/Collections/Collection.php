@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace PublishingKit\Collection;
+namespace PublishingKit\Core\Collections;
 
 use ArrayAccess;
 use Countable;
 use IteratorAggregate;
 use ArrayIterator;
-use PublishingKit\Collection\Traits\Macroable;
+use PublishingKit\Core\Traits\Macroable;
 
 class Collection implements ArrayAccess, Countable, IteratorAggregate
 {

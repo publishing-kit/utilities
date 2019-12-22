@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="collection">
-    <description>The coding standard of collection package</description>
+<ruleset name="core">
+    <description>The coding standard of core package</description>
 	<file>src</file>
 	<file>tests</file>
     <arg value="p" />

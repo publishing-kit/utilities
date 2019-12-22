@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Tests\Unit;
 
 use Tests\SimpleTestCase;
-use PublishingKit\Collection\Collection;
+use PublishingKit\Core\Collections\Collection;
 use Mockery as m;
 
 final class CollectionTest extends SimpleTestCase

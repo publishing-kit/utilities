@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PublishingKit\Collection\Traits;
+namespace PublishingKit\Core\Traits;
 
 use BadMethodCallException;
 use ReflectionClass;
