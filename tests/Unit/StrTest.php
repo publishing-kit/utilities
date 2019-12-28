@@ -129,7 +129,10 @@ final class StrTest extends SimpleTestCase
 
     public function testCanReplace()
     {
-        $this->assertSame('I am the very model of a scientist Salarian', $this->str->replace('modern major general', 'scientist Salarian')->__toString());
+        $this->assertSame(
+            'I am the very model of a scientist Salarian',
+            $this->str->replace('modern major general', 'scientist Salarian')->__toString()
+        );
     }
 
     public function testCanConvertToUpper()
