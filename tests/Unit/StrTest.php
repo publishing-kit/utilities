@@ -11,7 +11,7 @@ use ReflectionClass;
 final class StrTest extends SimpleTestCase
 {
     /**
-     * @var \Statico\Core\Utilities\Str
+     * @var Str
      */
     private $str;
 
