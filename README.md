@@ -1,4 +1,4 @@
-# core
+# utilities
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -7,7 +7,7 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-PublishingKit/Core is a set of utility classes
+PublishingKit/Utilities is a set of utility classes
 
 ## Structure
 
@@ -29,13 +29,13 @@ vendor/
 Via Composer
 
 ``` bash
-$ composer require publishing-kit/core
+$ composer require publishing-kit/utilities
 ```
 
 ## Usage
 
 ``` php
-$skeleton = new PublishingKit\core();
+$skeleton = new PublishingKit\Utilities();
 echo $skeleton->echoPhrase('Hello, League!');
 ```
 
@@ -66,17 +66,17 @@ If you discover any security related issues, please email 450801+matthewbdaly@us
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/publishing-kit/core.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/publishing-kit/utilities.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/publishing-kit/core/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/publishing-kit/core.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/publishing-kit/core.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/publishing-kit/core.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/publishing-kit/utilities/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/publishing-kit/utilities.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/publishing-kit/utilities.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/publishing-kit/utilities.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/publishing-kit/core
-[link-travis]: https://travis-ci.org/publishing-kit/core
-[link-scrutinizer]: https://scrutinizer-ci.com/g/publishing-kit/core/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/publishing-kit/core
-[link-downloads]: https://packagist.org/packages/publishing-kit/core
+[link-packagist]: https://packagist.org/packages/publishing-kit/utilities
+[link-travis]: https://travis-ci.org/publishing-kit/utilities
+[link-scrutinizer]: https://scrutinizer-ci.com/g/publishing-kit/utilities/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/publishing-kit/utilities
+[link-downloads]: https://packagist.org/packages/publishing-kit/utilities
 [link-author]: https://github.com/matthewbdaly
 [link-contributors]: ../../contributors

@@ -1,5 +1,5 @@
 {
-    "name": "publishing-kit/core",
+    "name": "publishing-kit/utilities",
     "type": "library",
     "description": "PHP utility classes",
     "keywords": [
@@ -8,7 +8,7 @@
         "string",
         "utility"
     ],
-    "homepage": "https://github.com/publishing-kit/core",
+    "homepage": "https://github.com/publishing-kit/utilities",
     "license": "MIT",
     "authors": [
         {
@@ -30,7 +30,7 @@
     },
     "autoload": {
         "psr-4": {
-            "PublishingKit\\Core\\": "src"
+            "PublishingKit\\Utilities\\": "src"
         }
     },
     "autoload-dev": {

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="core">
-    <description>The coding standard of core package</description>
+<ruleset name="utilities">
+    <description>The coding standard of utilities package</description>
 	<file>src</file>
 	<file>tests</file>
     <arg value="p" />
