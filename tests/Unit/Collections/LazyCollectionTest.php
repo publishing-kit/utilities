@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Core\Utilities;
 
+use PublishingKit\Utilities\Collections\Collection;
 use PublishingKit\Utilities\Collections\LazyCollection;
 use Tests\SimpleTestCase;
 use ReflectionClass;
 use Mockery as m;
+use JsonSerializable;
 
 final class LazyCollectionTest extends SimpleTestCase
 {
@@ -48,6 +50,31 @@ final class LazyCollectionTest extends SimpleTestCase
     public function testCanBeCreatedWithNullSource()
     {
         $collection = new LazyCollection();
+        $this->assertInstanceOf(LazyCollection::class, $collection);
+    }
+
+    public function testCanBeCreatedFromCollectable()
+    {
+        $collection = new LazyCollection(new Collection([1, 2, 3]));
+        $this->assertInstanceOf(LazyCollection::class, $collection);
+    }
+
+    public function testCanBeCreatedFromJsonSerializable()
+    {
+        $source = new class ([1, 2, 3]) implements JsonSerializable {
+            public $items;
+
+            public function __construct(array $items)
+            {
+                $this->items = $items;
+            }
+
+            public function jsonSerialize()
+            {
+                return $this->items;
+            }
+        };
+        $collection = new LazyCollection($source);
         $this->assertInstanceOf(LazyCollection::class, $collection);
     }
 
