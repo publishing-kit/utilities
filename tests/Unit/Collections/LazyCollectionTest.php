@@ -45,6 +45,12 @@ final class LazyCollectionTest extends SimpleTestCase
         $this->assertInstanceOf(LazyCollection::class, $collection);
     }
 
+    public function testCanBeCreatedWithNullSource()
+    {
+        $collection = new LazyCollection();
+        $this->assertInstanceOf(LazyCollection::class, $collection);
+    }
+
     public function testCanBeCalledStatically()
     {
         $this->collection = LazyCollection::make(function () {
@@ -63,6 +69,22 @@ final class LazyCollectionTest extends SimpleTestCase
     public function testCanCountCorrectly()
     {
         $this->assertSame(5, $this->collection->count());
+    }
+
+    public function testImplementsIteratorAggregate()
+    {
+        $this->assertInstanceOf('IteratorAggregate', $this->collection);
+        $this->assertInstanceOf('Generator', $this->collection->getIterator());
+    }
+
+    public function testImplementsJsonSerializable()
+    {
+        $this->assertInstanceOf('JsonSerializable', $this->collection);
+    }
+
+    public function testCanJsonSerialize()
+    {
+        $this->assertSame(json_encode([0, 1, 2, 3, 4]), $this->collection->jsonSerialize());
     }
 
     public function testCanConvertToJson()

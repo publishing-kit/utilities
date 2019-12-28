@@ -51,6 +51,16 @@ class LazyCollection implements Collectable, Countable, IteratorAggregate, JsonS
     }
 
     /**
+     * Create a new instance with no items.
+     *
+     * @return static
+     */
+    public static function empty()
+    {
+        return new static([]);
+    }
+
+    /**
      * Results array of items from Collection or Arrayable.
      *
      * @param  mixed  $items
@@ -197,6 +207,7 @@ class LazyCollection implements Collectable, Countable, IteratorAggregate, JsonS
      */
     public function jsonSerialize()
     {
+        return json_encode($this->toArray());
     }
 
     /**
