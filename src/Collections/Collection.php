@@ -360,21 +360,6 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, JsonSeria
     }
 
     /**
-     * Seek a position
-     *
-     * @param mixed $position Position to seek.
-     * @return void
-     * @throws OutOfBoundsException Invalid position.
-     */
-    public function seek($position)
-    {
-        if (!isset($this->items[$position])) {
-            throw new OutOfBoundsException("invalid seek position ($position)");
-        }
-        $this->position = $position;
-    }
-
-    /**
      * Group by a given key
      *
      * @param string $key Key to group by.

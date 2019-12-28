@@ -559,4 +559,13 @@ final class CollectionTest extends SimpleTestCase
         $newCollection->unserialize($data);
         $this->assertEquals($collection, $newCollection);
     }
+
+    public function testPipe()
+    {
+        $collection = Collection::make([1, 2, 3, 4, 5])
+            ->pipe(function ($item) {
+                return [1, 2, 3];
+            });
+        $this->assertEquals([1, 2, 3], $collection);
+    }
 }
