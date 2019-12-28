@@ -7,22 +7,11 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-PublishingKit/Utilities is a set of utility classes
+PublishingKit/Utilities is a set of utility classes, including:
 
-## Structure
-
-If any of the following are applicable to your project, then the directory structure should follow industry best practices by being named the following.
-
-```
-bin/        
-build/
-docs/
-config/
-src/
-tests/
-vendor/
-```
-
+* A collection class
+* A lazy collection class
+* A string class
 
 ## Install
 
@@ -35,8 +24,13 @@ $ composer require publishing-kit/utilities
 ## Usage
 
 ``` php
-$skeleton = new PublishingKit\Utilities();
-echo $skeleton->echoPhrase('Hello, League!');
+$coll = new PublishingKit\Utilities\Collections\Collection([]);
+$lazy = new PublishingKit\Utilities\Collections\LazyCollection(function () {
+    for ($i = 0; $i < 5; $i++) {
+        yield $i;
+    }
+});
+$str = new PublishingKit\Utilities\Str('foo');
 ```
 
 ## Change log
