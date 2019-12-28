@@ -176,4 +176,20 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate
     {
         return array_shift($this->items);
     }
+
+    /**
+     * Sort collection
+     *
+     * @param callable|null $callback The callback to use.
+     * @return Collection
+     */
+    public function sort(callable $callback = null)
+    {
+        if ($callback) {
+            usort($this->items, $callback);
+        } else {
+            sort($this->items);
+        }
+        return new static($this->items);
+    }
 }

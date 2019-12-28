@@ -334,4 +334,20 @@ final class CollectionTest extends SimpleTestCase
         $this->assertSame(1, $this->collection->shift());
         $this->assertSame([2, 3], $this->collection->toArray());
     }
+
+    public function testImplementsSort()
+    {
+        $items = [2, 1, 3];
+        $this->collection = new Collection($items);
+        $this->assertSame([3, 2, 1], $this->collection->sort(function ($a, $b) {
+            return ($a > $b) ? -1 : 1;
+        })->toArray());
+    }
+
+    public function testAllowsACallbackToSort()
+    {
+        $items = [2, 1, 3];
+        $this->collection = new Collection($items);
+        $this->assertSame([1, 2, 3], $this->collection->sort()->toArray());
+    }
 }
