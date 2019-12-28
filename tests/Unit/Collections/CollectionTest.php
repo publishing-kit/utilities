@@ -123,59 +123,10 @@ final class CollectionTest extends SimpleTestCase
         $this->assertInstanceOf('Traversable', $this->collection);
     }
 
-    public function testImplementsIterator()
+    public function testImplementsIteratorAggregate()
     {
-        $this->assertInstanceOf('Iterator', $this->collection);
-    }
-
-    public function testCanGetCurrentPosition()
-    {
-        $items = [
-            'foo',
-            'bar'
-        ];
-        $this->collection = new Collection($items);
-        $this->assertSame('foo', $this->collection->current());
-    }
-
-    public function testCanGetKey()
-    {
-        $items = [
-            'foo',
-            'bar'
-        ];
-        $this->collection = new Collection($items);
-        $this->assertSame(0, $this->collection->key());
-    }
-
-    public function testCanMoveForward()
-    {
-        $items = [
-            'foo',
-            'bar'
-        ];
-        $this->collection = new Collection($items);
-        $this->assertSame(0, $this->collection->key());
-        $this->collection->next();
-        $this->assertSame(1, $this->collection->key());
-    }
-
-    public function testCanRewind()
-    {
-        $items = [
-            'foo',
-            'bar'
-        ];
-        $this->collection = new Collection($items);
-        $this->collection->next();
-        $this->assertSame(1, $this->collection->key());
-        $this->collection->rewind();
-        $this->assertSame(0, $this->collection->key());
-    }
-
-    public function testCanValidate()
-    {
-        $this->assertFalse($this->collection->valid());
+        $this->assertInstanceOf('IteratorAggregate', $this->collection);
+        $this->assertInstanceOf('ArrayIterator', $this->collection->getIterator());
     }
 
     public function testImplementsJsonSerializable()
@@ -441,34 +392,6 @@ final class CollectionTest extends SimpleTestCase
             "f",
             "g"
         ], $this->collection->merge($merged)->toArray());
-    }
-
-    public function testImplementsSeek()
-    {
-        $items = [
-            "a",
-            "b",
-            "c",
-            "d",
-            "e"
-        ];
-        $this->collection = new Collection($items);
-        $this->collection->seek(2);
-        $this->assertSame("c", $this->collection->current());
-    }
-
-    public function testSeekOutOfBounds()
-    {
-        $this->expectException('OutOfBoundsException');
-        $items = [
-            "a",
-            "b",
-            "c",
-            "d",
-            "e"
-        ];
-        $this->collection = new Collection($items);
-        $this->collection->seek(7);
     }
 
     public function testImplementsGroupBy()

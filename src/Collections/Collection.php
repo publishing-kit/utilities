@@ -6,7 +6,8 @@ namespace PublishingKit\Utilities\Collections;
 
 use Countable;
 use ArrayAccess;
-use SeekableIterator;
+use IteratorAggregate;
+use ArrayIterator;
 use JsonSerializable;
 use Serializable;
 use PublishingKit\Utilities\Contracts\Collectable;
@@ -16,7 +17,7 @@ use OutOfBoundsException;
 /**
  * Collection class
  */
-class Collection implements Countable, ArrayAccess, SeekableIterator, JsonSerializable, Collectable, Serializable
+class Collection implements Countable, ArrayAccess, IteratorAggregate, JsonSerializable, Collectable, Serializable
 {
     use Macroable;
 
@@ -116,53 +117,11 @@ class Collection implements Countable, ArrayAccess, SeekableIterator, JsonSerial
     }
 
     /**
-     * Get current item
-     *
-     * @return mixed
+     * {@inheritDoc}
      */
-    public function current()
+    public function getIterator()
     {
-        return $this->items[$this->position];
-    }
-
-    /**
-     * Get key for current item
-     *
-     * @return mixed
-     */
-    public function key()
-    {
-        return $this->position;
-    }
-
-    /**
-     * Move counter to next item
-     *
-     * @return void
-     */
-    public function next()
-    {
-        ++$this->position;
-    }
-
-    /**
-     * Move counter back to zero
-     *
-     * @return void
-     */
-    public function rewind()
-    {
-        $this->position = 0;
-    }
-
-    /**
-     * Is current item valid?
-     *
-     * @return boolean
-     */
-    public function valid()
-    {
-        return isset($this->items[$this->position]);
+        return new ArrayIterator($this->items);
     }
 
     /**
