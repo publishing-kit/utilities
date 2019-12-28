@@ -10,6 +10,8 @@ use Tests\SimpleTestCase;
 use ReflectionClass;
 use Mockery as m;
 use JsonSerializable;
+use ArrayIterator;
+use IteratorAggregate;
 
 final class LazyCollectionTest extends SimpleTestCase
 {
@@ -72,6 +74,25 @@ final class LazyCollectionTest extends SimpleTestCase
             public function jsonSerialize()
             {
                 return $this->items;
+            }
+        };
+        $collection = new LazyCollection($source);
+        $this->assertInstanceOf(LazyCollection::class, $collection);
+    }
+
+    public function testCanBeCreatedFromTraversable()
+    {
+        $source = new class ([1, 2, 3]) implements IteratorAggregate {
+            public $items;
+
+            public function __construct(array $items)
+            {
+                $this->items = $items;
+            }
+
+            public function getIterator()
+            {
+                return new ArrayIterator($this->items);
             }
         };
         $collection = new LazyCollection($source);
