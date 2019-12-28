@@ -166,22 +166,6 @@ final class StrTest extends SimpleTestCase
         $this->assertSame('  I am the very model of a modern major general', $this->str->rtrim()->__toString());
     }
 
-    public function testImplementsSeek()
-    {
-        $str = 'I am the very model of a modern major general  ';
-        $this->str = new Str($str);
-        $this->str->seek(2);
-        $this->assertSame("a", $this->str->current());
-    }
-
-    public function testSeekOutOfBounds()
-    {
-        $this->expectException('OutOfBoundsException');
-        $str = 'I am the very model of a modern major general  ';
-        $this->str = new Str($str);
-        $this->str->seek(200);
-    }
-
     public function testPath()
     {
         $str = new Str('\foo\bar');

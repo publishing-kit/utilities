@@ -6,7 +6,7 @@ namespace PublishingKit\Utilities;
 
 use Countable;
 use ArrayAccess;
-use SeekableIterator;
+use Iterator;
 use PublishingKit\Utilities\Contracts\Stringable;
 use PublishingKit\Utilities\Traits\Macroable;
 use OutOfBoundsException;
@@ -15,7 +15,7 @@ use Serializable;
 /**
  * String class
  */
-class Str implements Countable, ArrayAccess, SeekableIterator, Stringable, Serializable
+class Str implements Countable, ArrayAccess, Iterator, Stringable, Serializable
 {
     use Macroable;
 
@@ -234,23 +234,6 @@ class Str implements Countable, ArrayAccess, SeekableIterator, Stringable, Seria
     public function rtrim(): Stringable
     {
         return new static(rtrim($this->string));
-    }
-
-    /**
-     * Seek a position
-     *
-     * @param mixed $position Position to seek.
-     *
-     * @return void
-     *
-     * @throws OutOfBoundsException Invalid position.
-     */
-    public function seek($position)
-    {
-        if (!isset($this->string[$position])) {
-            throw new OutOfBoundsException("invalid seek position ($position)");
-        }
-        $this->position = $position;
     }
 
     /**
