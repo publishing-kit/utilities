@@ -261,4 +261,9 @@ class Str implements Countable, ArrayAccess, Iterator, Stringable, Serializable
     {
         $this->string = unserialize($serialized);
     }
+
+    public function __debugInfo()
+    {
+        return $this->__toString();
+    }
 }

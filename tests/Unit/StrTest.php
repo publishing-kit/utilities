@@ -249,4 +249,10 @@ final class StrTest extends SimpleTestCase
         $newStr->unserialize($data);
         $this->assertEquals($str, $newStr);
     }
+
+    public function testDebug()
+    {
+        $str = new Str('My string');
+        $this->assertEquals('My string', $str->__debugInfo());
+    }
 }

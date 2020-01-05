@@ -242,4 +242,9 @@ class LazyCollection implements Collectable, Countable, IteratorAggregate, JsonS
     {
         $this->source = unserialize($serialized);
     }
+
+    public function __debugInfo()
+    {
+        return $this->toArray();
+    }
 }

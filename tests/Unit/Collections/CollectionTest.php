@@ -568,4 +568,14 @@ final class CollectionTest extends SimpleTestCase
             });
         $this->assertEquals([1, 2, 3], $collection);
     }
+
+    public function testDebug()
+    {
+        $items = [
+            'foo',
+            'bar'
+        ];
+        $this->collection = new Collection($items);
+        $this->assertSame($items, $this->collection->__debugInfo());
+    }
 }

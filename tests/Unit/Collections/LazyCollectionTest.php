@@ -234,4 +234,9 @@ final class LazyCollectionTest extends SimpleTestCase
         $newCollection->unserialize($data);
         $this->assertEquals($collection, $newCollection);
     }
+
+    public function testDebug()
+    {
+        $this->assertSame([0, 1, 2, 3, 4], $this->collection->__debugInfo());
+    }
 }

@@ -422,4 +422,9 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, JsonSeria
     {
         return $callback($this);
     }
+
+    public function __debugInfo()
+    {
+        return $this->toArray();
+    }
 }
