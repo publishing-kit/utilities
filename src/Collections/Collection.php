@@ -24,7 +24,7 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, JsonSeria
     /**
      * Items
      *
-     * @var array
+     * @var iterable
      */
     protected $items;
 
@@ -42,16 +42,23 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, JsonSeria
      */
     public function count()
     {
-        return count($this->items);
+        if (is_array($this->items)) {
+            return count($this->items);
+        }
+        $count = 0;
+        foreach ($this->items as $item) {
+            $count++;
+        }
+        return $count;
     }
 
     /**
      * Constructor
      *
-     * @param array $items Items to collect.
+     * @param iterable $items Items to collect.
      * @return void
      */
-    public function __construct(array $items = [])
+    public function __construct(iterable $items = [])
     {
         $this->items = $items;
     }
@@ -59,10 +66,10 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, JsonSeria
     /**
      * Create collection
      *
-     * @param array $items Items to collect.
+     * @param iterable $items Items to collect.
      * @return Collection
      */
-    public static function make(array $items)
+    public static function make(iterable $items)
     {
         return new static($items);
     }

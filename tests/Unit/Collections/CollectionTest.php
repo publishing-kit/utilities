@@ -54,6 +54,16 @@ final class CollectionTest extends SimpleTestCase
         $this->assertSame(1, $this->collection->count());
     }
 
+    public function testCanCountCorrectlyWithIterable()
+    {
+        $items = new \ArrayObject([
+            'foo' => 'bar'
+        ]);
+        $this->collection = new Collection($items);
+        $this->assertSame(1, $this->collection->count());
+    }
+
+
     public function testImplementsArrayAccess()
     {
         $this->assertInstanceOf('ArrayAccess', $this->collection);
