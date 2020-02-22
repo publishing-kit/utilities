@@ -219,9 +219,6 @@ class LazyCollection implements Collectable, Countable, IteratorAggregate, JsonS
      */
     protected function makeIterator($source)
     {
-        if ($source instanceof IteratorAggregate) {
-            return $source->getIterator();
-        }
         if (is_array($source)) {
             return new ArrayIterator($source);
         }
