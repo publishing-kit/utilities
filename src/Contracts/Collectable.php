@@ -18,9 +18,9 @@ interface Collectable
     /**
      * Convert collection to array
      *
-     * @return array
+     * @return iterable
      */
-    public function toArray();
+    public function toArray(): iterable;
 
     /**
      * Map operation

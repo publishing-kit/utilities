@@ -63,10 +63,11 @@ class LazyCollection implements Collectable, Countable, IteratorAggregate, JsonS
     /**
      * Results array of items from Collection or Arrayable.
      *
-     * @param  mixed  $items
-     * @return array
+     * @param mixed  $items
+     *
+     * @return iterable
      */
-    protected function getArrayableItems($items)
+    protected function getArrayableItems($items): iterable
     {
         if (is_array($items)) {
             return $items;
