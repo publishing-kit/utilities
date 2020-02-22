@@ -96,7 +96,7 @@ class LazyCollection implements Collectable, Countable, IteratorAggregate, JsonS
      */
     public function toArray(): iterable
     {
-        return $this->map(function ($value) {
+        return $this->map(function ($value) /* @return mixed */ {
             return $value instanceof Collectable ? $value->toArray() : $value;
         })->all();
     }
