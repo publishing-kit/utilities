@@ -434,4 +434,14 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, JsonSeria
     {
         return $this->toArray();
     }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return iterable
+     */
+    public function all(): iterable
+    {
+        return $this->toArray();
+    }
 }

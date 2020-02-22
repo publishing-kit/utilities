@@ -70,4 +70,11 @@ interface Collectable
      * @return void
      */
     public function each(callable $callback);
+
+    /**
+     * Return all items
+     *
+     * @return iterable
+     */
+    public function all(): iterable;
 }
