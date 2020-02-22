@@ -239,4 +239,14 @@ final class LazyCollectionTest extends SimpleTestCase
     {
         $this->assertSame([0, 1, 2, 3, 4], $this->collection->__debugInfo());
     }
+
+    public function testCastingObjectsToArray()
+    {
+        $foo = new class {
+            public $a = 1;
+            public $b = 2;
+        };
+        $collection = new LazyCollection($foo);
+        $this->assertEquals(['a' => 1, 'b' => 2], $collection->all());
+    }
 }
