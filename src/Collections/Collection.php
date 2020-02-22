@@ -154,9 +154,9 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, JsonSeria
     /**
      * Convert collection to array
      *
-     * @return array
+     * @return iterable
      */
-    public function toArray()
+    public function toArray(): iterable
     {
         return $this->items;
     }
