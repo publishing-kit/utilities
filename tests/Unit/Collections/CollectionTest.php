@@ -588,4 +588,14 @@ final class CollectionTest extends SimpleTestCase
         $this->collection = new Collection($items);
         $this->assertSame($items, $this->collection->__debugInfo());
     }
+
+    public function testAll()
+    {
+        $items = [
+            'foo',
+            'bar'
+        ];
+        $this->collection = new Collection($items);
+        $this->assertSame($items, $this->collection->all());
+    }
 }
