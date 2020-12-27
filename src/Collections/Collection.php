@@ -12,7 +12,6 @@ use JsonSerializable;
 use Serializable;
 use PublishingKit\Utilities\Contracts\Collectable;
 use PublishingKit\Utilities\Traits\Macroable;
-use OutOfBoundsException;
 
 /**
  * Collection class

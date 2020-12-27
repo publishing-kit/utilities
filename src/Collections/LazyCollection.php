@@ -14,6 +14,11 @@ use Serializable;
 use PublishingKit\Utilities\Contracts\Collectable;
 use PublishingKit\Utilities\Traits\Macroable;
 
+/**
+ * Lazy collection class
+ *
+ * @psalm-consistent-constructor
+ */
 class LazyCollection implements Collectable, Countable, IteratorAggregate, JsonSerializable, Serializable
 {
     use Macroable;
