@@ -14,6 +14,7 @@ use Serializable;
 
 /**
  * String class
+ * @psalm-consistent-constructor
  */
 class Str implements Countable, ArrayAccess, Iterator, Stringable, Serializable
 {
@@ -259,6 +260,7 @@ class Str implements Countable, ArrayAccess, Iterator, Stringable, Serializable
      */
     public function unserialize($serialized)
     {
+        /** @var string **/
         $this->string = unserialize($serialized);
     }
 

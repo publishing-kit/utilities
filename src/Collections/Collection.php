@@ -16,6 +16,8 @@ use OutOfBoundsException;
 
 /**
  * Collection class
+ *
+ * @psalm-consistent-constructor
  */
 class Collection implements Countable, ArrayAccess, IteratorAggregate, JsonSerializable, Collectable, Serializable
 {
