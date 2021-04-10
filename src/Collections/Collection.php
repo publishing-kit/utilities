@@ -384,6 +384,7 @@ class Collection implements ArrayAccess, Collectable
         array_walk_recursive($this->items, function ($a) use (&$return) {
             $return[] = $a;
         });
+        /** @var T[] $return **/
         return new static($return);
     }
 
