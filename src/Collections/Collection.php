@@ -175,10 +175,7 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, JsonSeria
     }
 
     /**
-     * Filter operation
-     *
-     * @param callable $callback The callback to use.
-     * @return Collection
+     * {@inheritDoc}
      */
     public function filter(callable $callback)
     {
@@ -186,10 +183,7 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, JsonSeria
     }
 
     /**
-     * Reverse filter operation
-     *
-     * @param callable $callback The callback to use.
-     * @return Collection
+     * {@inheritDoc}
      */
     public function reject(callable $callback)
     {

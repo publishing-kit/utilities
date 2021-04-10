@@ -28,9 +28,8 @@
       <code>$this-&gt;items[$offset]</code>
       <code>$this-&gt;items[]</code>
     </InvalidArrayAssignment>
-    <MissingClosureParamType occurrences="2">
+    <MissingClosureParamType occurrences="1">
       <code>$a</code>
-      <code>$item</code>
     </MissingClosureParamType>
     <MissingClosureReturnType occurrences="1">
       <code>function (array $item) use ($name) {</code>
@@ -39,7 +38,7 @@
       <code>$accumulator</code>
       <code>$return</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="2">
+    <MixedArgumentTypeCoercion occurrences="1">
       <code>$callback</code>
       <code>$callback</code>
     </MixedArgumentTypeCoercion>
@@ -73,7 +72,7 @@
     <InvalidPropertyAssignmentValue occurrences="1">
       <code>$this-&gt;getArrayableItems($source)</code>
     </InvalidPropertyAssignmentValue>
-    <MissingClosureParamType occurrences="4">
+    <MissingClosureParamType occurrences="3">
       <code>$item</code>
       <code>$item</code>
       <code>$value</code>

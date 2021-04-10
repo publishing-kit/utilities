@@ -6,6 +6,11 @@ namespace PublishingKit\Utilities\Contracts;
 
 use OutOfBoundsException;
 
+/**
+ * Collection
+ *
+ * @template T
+ */
 interface Collectable
 {
     /**
@@ -34,6 +39,7 @@ interface Collectable
      * Filter operation
      *
      * @param callable $callback The callback to use.
+     * @psalm-param callable(T): bool $callback
      * @return Collectable
      */
     public function filter(callable $callback);
@@ -42,6 +48,7 @@ interface Collectable
      * Reverse filter operation
      *
      * @param callable $callback The callback to use.
+     * @psalm-param callable(T): bool $callback
      * @return Collectable
      */
     public function reject(callable $callback);
