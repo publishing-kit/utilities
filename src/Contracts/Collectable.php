@@ -4,14 +4,18 @@ declare(strict_types=1);
 
 namespace PublishingKit\Utilities\Contracts;
 
+use Countable;
+use IteratorAggregate;
+use JsonSerializable;
 use OutOfBoundsException;
+use Serializable;
 
 /**
  * Collection
  *
  * @template T
  */
-interface Collectable
+interface Collectable extends Countable, IteratorAggregate, JsonSerializable, Serializable
 {
     /**
      * Convert collection to J)SON

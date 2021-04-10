@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace PublishingKit\Utilities\Collections;
 
-use Countable;
-use IteratorAggregate;
 use ArrayIterator;
-use JsonSerializable;
 use Generator;
+use JsonSerializable;
 use Traversable;
-use Serializable;
 use PublishingKit\Utilities\Contracts\Collectable;
 use PublishingKit\Utilities\Traits\Macroable;
 
@@ -19,7 +16,7 @@ use PublishingKit\Utilities\Traits\Macroable;
  *
  * @psalm-consistent-constructor
  */
-class LazyCollection implements Collectable, Countable, IteratorAggregate, JsonSerializable, Serializable
+class LazyCollection implements Collectable
 {
     use Macroable;
 

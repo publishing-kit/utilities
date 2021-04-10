@@ -4,12 +4,8 @@ declare(strict_types=1);
 
 namespace PublishingKit\Utilities\Collections;
 
-use Countable;
 use ArrayAccess;
-use IteratorAggregate;
 use ArrayIterator;
-use JsonSerializable;
-use Serializable;
 use PublishingKit\Utilities\Contracts\Collectable;
 use PublishingKit\Utilities\Traits\Macroable;
 
@@ -19,7 +15,7 @@ use PublishingKit\Utilities\Traits\Macroable;
  * @psalm-consistent-constructor
  * @template T
  */
-class Collection implements Countable, ArrayAccess, IteratorAggregate, JsonSerializable, Collectable, Serializable
+class Collection implements ArrayAccess, Collectable
 {
     use Macroable;
 
