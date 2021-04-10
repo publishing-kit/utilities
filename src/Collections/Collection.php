@@ -17,6 +17,7 @@ use PublishingKit\Utilities\Traits\Macroable;
  * Collection class
  *
  * @psalm-consistent-constructor
+ * @template T
  */
 class Collection implements Countable, ArrayAccess, IteratorAggregate, JsonSerializable, Collectable, Serializable
 {
@@ -25,7 +26,7 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, JsonSeria
     /**
      * Items
      *
-     * @var iterable
+     * @var iterable<T>
      */
     protected $items;
 
@@ -39,7 +40,7 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, JsonSeria
     /**
      * Constructor
      *
-     * @param iterable $items Items to collect.
+     * @param iterable<T> $items Items to collect.
      * @return void
      */
     public function __construct(iterable $items = [])

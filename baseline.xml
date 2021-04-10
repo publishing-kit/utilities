@@ -58,17 +58,11 @@
       <code>$this-&gt;items[$offset]</code>
       <code>$this-&gt;items[$offset]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="12">
+    <MixedAssignment occurrences="6">
       <code>$accumulator</code>
       <code>$accumulator</code>
       <code>$accumulator</code>
       <code>$accumulator</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$item</code>
-      <code>$items[$item[$key]][]</code>
       <code>$return[]</code>
       <code>$this-&gt;items</code>
     </MixedAssignment>
