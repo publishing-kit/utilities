@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="4.3.1@2feba22a005a18bf31d4c7b9bdb9252c73897476">
+  <file src="src/Collections/Collection.php">
+    <InvalidArgument occurrences="15">
+      <code>$this-&gt;items</code>
+      <code>$this-&gt;items</code>
+      <code>$this-&gt;items</code>
+      <code>$this-&gt;items</code>
+      <code>$this-&gt;items</code>
+      <code>$this-&gt;items</code>
+      <code>$this-&gt;items</code>
+      <code>$this-&gt;items</code>
+      <code>$this-&gt;items</code>
+      <code>$this-&gt;items</code>
+      <code>$this-&gt;items</code>
+      <code>$this-&gt;items</code>
+      <code>$this-&gt;items</code>
+      <code>$this-&gt;items</code>
+      <code>$this-&gt;items</code>
+    </InvalidArgument>
+    <InvalidArrayAccess occurrences="3">
+      <code>$this-&gt;items[$offset]</code>
+      <code>$this-&gt;items[$offset]</code>
+      <code>$this-&gt;items[$offset]</code>
+    </InvalidArrayAccess>
+    <InvalidArrayAssignment occurrences="3">
+      <code>$item</code>
+      <code>$this-&gt;items[$offset]</code>
+      <code>$this-&gt;items[]</code>
+    </InvalidArrayAssignment>
+    <MissingClosureParamType occurrences="2">
+      <code>$a</code>
+      <code>$item</code>
+    </MissingClosureParamType>
+    <MissingClosureReturnType occurrences="1">
+      <code>function (array $item) use ($name) {</code>
+    </MissingClosureReturnType>
+    <MixedArgument occurrences="3">
+      <code>$accumulator</code>
+      <code>$merge</code>
+      <code>$return</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="2">
+      <code>$callback</code>
+      <code>$callback</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayAccess occurrences="1">
+      <code>$item[$key]</code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment occurrences="1">
+      <code>$return[]</code>
+    </MixedArrayAssignment>
+    <MixedArrayOffset occurrences="6">
+      <code>$item[$name]</code>
+      <code>$items[$item[$key]]</code>
+      <code>$this-&gt;items[$offset]</code>
+      <code>$this-&gt;items[$offset]</code>
+      <code>$this-&gt;items[$offset]</code>
+      <code>$this-&gt;items[$offset]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="12">
+      <code>$accumulator</code>
+      <code>$accumulator</code>
+      <code>$accumulator</code>
+      <code>$accumulator</code>
+      <code>$item</code>
+      <code>$item</code>
+      <code>$item</code>
+      <code>$item</code>
+      <code>$item</code>
+      <code>$items[$item[$key]][]</code>
+      <code>$return[]</code>
+      <code>$this-&gt;items</code>
+    </MixedAssignment>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$this-&gt;items</code>
+    </PossiblyInvalidArgument>
+  </file>
+  <file src="src/Collections/LazyCollection.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$this-&gt;getArrayableItems($source)</code>
+    </InvalidPropertyAssignmentValue>
+    <MissingClosureParamType occurrences="4">
+      <code>$item</code>
+      <code>$item</code>
+      <code>$value</code>
+      <code>$value</code>
+    </MissingClosureParamType>
+    <MissingClosureReturnType occurrences="1">
+      <code>function ($item) use ($name) {</code>
+    </MissingClosureReturnType>
+    <MixedArrayAccess occurrences="1">
+      <code>$item[$name]</code>
+    </MixedArrayAccess>
+    <MixedArrayOffset occurrences="1">
+      <code>$item[$name]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="9">
+      <code>$item</code>
+      <code>$key</code>
+      <code>$key</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$this-&gt;source</code>
+      <code>$value</code>
+      <code>$value</code>
+      <code>$value</code>
+    </MixedAssignment>
+    <MixedFunctionCall occurrences="1">
+      <code>$source()</code>
+    </MixedFunctionCall>
+    <MixedInferredReturnType occurrences="1">
+      <code>\Traversable</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$source()</code>
+    </MixedReturnStatement>
+    <PropertyTypeCoercion occurrences="1">
+      <code>$source</code>
+    </PropertyTypeCoercion>
+    <TooManyArguments occurrences="1">
+      <code>$callback($value, $key)</code>
+    </TooManyArguments>
+  </file>
+  <file src="src/Str.php">
+    <MixedArgument occurrences="1">
+      <code>$offset</code>
+    </MixedArgument>
+    <MixedArrayOffset occurrences="3">
+      <code>$this-&gt;string[$offset]</code>
+      <code>$this-&gt;string[$offset]</code>
+      <code>$this-&gt;string[$offset]</code>
+    </MixedArrayOffset>
+    <MixedOperand occurrences="1">
+      <code>$value</code>
+    </MixedOperand>
+    <MixedStringOffsetAssignment occurrences="1">
+      <code>$this-&gt;string[$offset]</code>
+    </MixedStringOffsetAssignment>
+  </file>
+  <file src="src/Traits/Macroable.php">
+    <MissingClosureReturnType occurrences="1">
+      <code>function () use ($method, $mixin) {</code>
+    </MissingClosureReturnType>
+    <MixedArgument occurrences="2">
+      <code>$method</code>
+      <code>static::$macros[$method]</code>
+    </MixedArgument>
+    <MixedFunctionCall occurrences="3">
+      <code>call_user_func_array(static::$macros[$method], $parameters)</code>
+      <code>call_user_func_array(static::$macros[$method], $parameters)</code>
+      <code>call_user_func_array(static::$macros[$method]-&gt;bindTo($this, static::class), $parameters)</code>
+    </MixedFunctionCall>
+    <MixedMethodCall occurrences="1">
+      <code>bindTo</code>
+    </MixedMethodCall>
+    <PossiblyInvalidFunctionCall occurrences="1">
+      <code>call_user_func_array(Closure::bind(static::$macros[$method], null, static::class), $parameters)</code>
+    </PossiblyInvalidFunctionCall>
+  </file>
+</files>
