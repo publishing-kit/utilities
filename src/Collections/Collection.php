@@ -360,7 +360,7 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, JsonSeria
     /**
      * Merge another array into the collection
      *
-     * @param mixed $merge Array to merge.
+     * @param array<T> $merge Array to merge.
      * @return Collection
      */
     public function merge($merge): Collection

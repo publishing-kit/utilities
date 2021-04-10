@@ -35,9 +35,8 @@
     <MissingClosureReturnType occurrences="1">
       <code>function (array $item) use ($name) {</code>
     </MissingClosureReturnType>
-    <MixedArgument occurrences="3">
+    <MixedArgument occurrences="2">
       <code>$accumulator</code>
-      <code>$merge</code>
       <code>$return</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="2">
