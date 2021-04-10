@@ -62,4 +62,11 @@ interface Stringable
      * @return self
      */
     public function rtrim(): self;
+
+    /**
+     * Handle path in a platform-independent way
+     *
+     * @return self
+     */
+    public function path(): self;
 }
